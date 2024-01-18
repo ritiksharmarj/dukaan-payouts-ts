@@ -26,16 +26,15 @@ export default function NavbarItem({
     pathname?.startsWith(`${href}/`);
 
   function handleClick() {
-    if (setMobileMenuOpen !== undefined) setMobileMenuOpen(false);
-
     router.push(href);
+    if (setMobileMenuOpen !== undefined) setMobileMenuOpen(false);
   }
 
   return (
     <li
       onClick={handleClick}
       className={cn(
-        'group flex items-center transition-all py-2 px-4 gap-3 rounded hover:bg-navbar-100',
+        'group flex items-center transition-all py-2 px-4 gap-3 rounded hover:bg-navbar-100 cursor-pointer',
         isActive && 'bg-navbar-100'
       )}
     >

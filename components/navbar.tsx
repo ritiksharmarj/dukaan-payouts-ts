@@ -14,17 +14,17 @@ import {
 import NavbarItem from './navbarItem';
 
 const navbarItems = [
-  { href: '/home', icon: HomeIcon, label: 'Home' },
-  { href: '/orders', icon: OrdersIcon, label: 'Orders' },
-  { href: '/products', icon: ProductsIcon, label: 'Products' },
-  { href: '/delivery', icon: DeliveryIcon, label: 'Delivery' },
-  { href: '/marketing', icon: MarketingIcon, label: 'Marketing' },
-  { href: '/analytics', icon: AnalyticsIcon, label: 'Analytics' },
-  { href: '/payouts', icon: PayoutsIcon, label: 'Payouts' },
-  { href: '/discounts', icon: DiscountsIcon, label: 'Discounts' },
-  { href: '/audience', icon: AudienceIcon, label: 'Audience' },
-  { href: '/appearance', icon: AppearanceIcon, label: 'Appearance' },
-  { href: '/plugins', icon: PluginsIcon, label: 'Plugins' },
+  { href: '/', icon: <HomeIcon />, label: 'Home' },
+  { href: '/orders', icon: <OrdersIcon />, label: 'Orders' },
+  { href: '/products', icon: <ProductsIcon />, label: 'Products' },
+  { href: '/delivery', icon: <DeliveryIcon />, label: 'Delivery' },
+  { href: '/marketing', icon: <MarketingIcon />, label: 'Marketing' },
+  { href: '/analytics', icon: <AnalyticsIcon />, label: 'Analytics' },
+  { href: '/payouts', icon: <PayoutsIcon />, label: 'Payouts' },
+  { href: '/discounts', icon: <DiscountsIcon />, label: 'Discounts' },
+  { href: '/audience', icon: <AudienceIcon />, label: 'Audience' },
+  { href: '/appearance', icon: <AppearanceIcon />, label: 'Appearance' },
+  { href: '/plugins', icon: <PluginsIcon />, label: 'Plugins' },
 ];
 
 export default function Navbar() {

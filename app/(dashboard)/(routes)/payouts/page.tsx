@@ -1,19 +1,11 @@
-// import {
-//   ChevronDownIcon,
-//   DownloadIcon,
-//   SearchIcon,
-//   SortIcon,
-// } from '../assets/icons';
-// import RefundList from '../components/RefundList';
-// import Card from '../components/ui/Card';
-// import Pills from '../components/ui/Pills';
-
 import {
   ChevronDownIcon,
   DownloadIcon,
   SearchIcon,
   SortIcon,
 } from '@/components/icons';
+import Card from '@/components/ui/card';
+import Pills from '@/components/ui/pills';
 
 export default function Payouts() {
   return (

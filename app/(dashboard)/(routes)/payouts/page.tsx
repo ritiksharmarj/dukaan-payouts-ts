@@ -4,6 +4,7 @@ import {
   SearchIcon,
   SortIcon,
 } from '@/components/icons';
+import RefundList from '@/components/refund-list';
 import Card from '@/components/ui/card';
 import Pills from '@/components/ui/pills';
 
@@ -75,7 +76,7 @@ export default function Payouts() {
             </div>
           </div>
 
-          {/* <RefundList /> */}
+          <RefundList />
         </div>
       </div>
     </>

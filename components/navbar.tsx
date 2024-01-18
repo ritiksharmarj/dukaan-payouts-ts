@@ -11,7 +11,7 @@ import {
   PluginsIcon,
   ProductsIcon,
 } from './icons';
-import NavbarItem from './navbarItem';
+import NavbarItem from './navbar-item';
 
 const navbarItems = [
   { href: '/', icon: <HomeIcon />, label: 'Home' },

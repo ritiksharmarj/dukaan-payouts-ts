@@ -1,7 +1,8 @@
 'use client';
 
 import { cn } from '@/lib/utils';
-import { usePathname, useRouter } from 'next/navigation';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { Dispatch, SetStateAction } from 'react';
 
 interface NavbarItemProps {
@@ -18,42 +19,44 @@ export default function NavbarItem({
   setMobileMenuOpen,
 }: NavbarItemProps) {
   const pathname = usePathname();
-  const router = useRouter();
 
   const isActive =
     (pathname === '/' && href === '/') ||
     pathname === href ||
     pathname?.startsWith(`${href}/`);
 
-  function handleClick() {
-    router.push(href);
-    if (setMobileMenuOpen !== undefined) setMobileMenuOpen(false);
-  }
-
   return (
     <li
-      onClick={handleClick}
-      className={cn(
-        'group flex items-center transition-all py-2 px-4 gap-3 rounded hover:bg-navbar-100 cursor-pointer',
-        isActive && 'bg-navbar-100'
-      )}
+      onClick={
+        setMobileMenuOpen !== undefined
+          ? () => setMobileMenuOpen(false)
+          : undefined
+      }
     >
-      <div
+      <Link
+        href={href}
         className={cn(
-          'w-5 h-5 opacity-80 group-hover:opacity-100 transition-all',
-          isActive && 'opacity-100'
+          'group flex items-center transition-all py-2 px-4 gap-3 rounded hover:bg-navbar-100',
+          isActive && 'bg-navbar-100'
         )}
       >
-        {icon}
-      </div>
-      <span
-        className={cn(
-          'text-sm font-medium opacity-80 group-hover:opacity-100 transition-all',
-          isActive && 'opacity-100'
-        )}
-      >
-        {label}
-      </span>
+        <div
+          className={cn(
+            'w-5 h-5 opacity-80 group-hover:opacity-100 transition-all',
+            isActive && 'opacity-100'
+          )}
+        >
+          {icon}
+        </div>
+        <span
+          className={cn(
+            'text-sm font-medium opacity-80 group-hover:opacity-100 transition-all',
+            isActive && 'opacity-100'
+          )}
+        >
+          {label}
+        </span>
+      </Link>
     </li>
   );
 }

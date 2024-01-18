@@ -1,4 +1,4 @@
-import type { Config } from 'tailwindcss'
+import type { Config } from 'tailwindcss';
 
 const config: Config = {
   content: [
@@ -7,14 +7,41 @@ const config: Config = {
     './app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
+    colors: {
+      black: {
+        100: 'rgba(255, 255, 255, 1)',
+        12: 'rgba(26, 24, 30, 1)',
+        50: 'rgba(128, 128, 128, 1)',
+        60: 'rgba(153, 153, 153, 1)',
+        90: 'rgba(230, 230, 230, 1)',
+        95: 'rgba(242, 242, 242, 1)',
+        98: 'rgba(250, 250, 250, 1)',
+        30: 'rgba(77, 77, 77, 1)',
+        85: 'rgba(217, 217, 217, 1)',
+      },
+      blue: {
+        hover: 'rgba(14, 79, 130, 1)',
+        primary: 'rgba(20, 110, 180, 1)',
+      },
+      green: {
+        secondary: 'rgba(23, 179, 27, 1)',
+      },
+      navbar: {
+        secondary: 'rgba(30, 38, 64, 1)',
+        100: 'rgba(255, 255, 255, 0.1)',
+        200: 'rgba(53, 60, 83, 1)',
+      },
+    },
+    boxShadow: {
+      sm: '0px 2px 6px 0px rgba(26, 24, 30, 0.04)',
+    },
     extend: {
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+      screens: {
+        tablet: '960px',
+        desktop: '1248px',
       },
     },
   },
   plugins: [],
-}
-export default config
+};
+export default config;

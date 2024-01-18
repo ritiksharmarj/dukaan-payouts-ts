@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { ChevronDownIcon, WalletIcon } from './icons';
+import Navbar from './navbar';
 
 export default function Sidebar() {
   return (
@@ -34,7 +35,7 @@ export default function Sidebar() {
           </div>
 
           {/* navigation */}
-          {/* <Navbar /> */}
+          <Navbar />
         </div>
 
         <Link

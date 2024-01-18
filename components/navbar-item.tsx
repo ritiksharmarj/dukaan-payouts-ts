@@ -1,46 +1,60 @@
 'use client';
 
 import { cn } from '@/lib/utils';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
+import { Dispatch, SetStateAction } from 'react';
 
 interface NavbarItemProps {
   href: string;
   icon: JSX.Element;
   label: string;
+  setMobileMenuOpen?: Dispatch<SetStateAction<boolean>>;
 }
 
-export default function NavbarItem({ href, icon, label }: NavbarItemProps) {
+export default function NavbarItem({
+  href,
+  icon,
+  label,
+  setMobileMenuOpen,
+}: NavbarItemProps) {
   const pathname = usePathname();
+  const router = useRouter();
 
-  const isActive = pathname === href;
+  const isActive =
+    (pathname === '/' && href === '/') ||
+    pathname === href ||
+    pathname?.startsWith(`${href}/`);
+
+  function handleClick() {
+    if (setMobileMenuOpen !== undefined) setMobileMenuOpen(false);
+
+    router.push(href);
+  }
 
   return (
-    <li>
-      <Link
-        href={href}
+    <li
+      onClick={handleClick}
+      className={cn(
+        'group flex items-center transition-all py-2 px-4 gap-3 rounded hover:bg-navbar-100',
+        isActive && 'bg-navbar-100'
+      )}
+    >
+      <div
         className={cn(
-          'group flex items-center transition-all py-2 px-4 gap-3 rounded hover:bg-navbar-100',
-          isActive && 'bg-navbar-100'
+          'w-5 h-5 opacity-80 group-hover:opacity-100 transition-all',
+          isActive && 'opacity-100'
         )}
       >
-        <div
-          className={cn(
-            'w-5 h-5 opacity-80 group-hover:opacity-100 transition-all',
-            isActive && 'opacity-100'
-          )}
-        >
-          {icon}
-        </div>
-        <span
-          className={cn(
-            'text-sm font-medium opacity-80 group-hover:opacity-100 transition-all',
-            isActive && 'opacity-100'
-          )}
-        >
-          {label}
-        </span>
-      </Link>
+        {icon}
+      </div>
+      <span
+        className={cn(
+          'text-sm font-medium opacity-80 group-hover:opacity-100 transition-all',
+          isActive && 'opacity-100'
+        )}
+      >
+        {label}
+      </span>
     </li>
   );
 }

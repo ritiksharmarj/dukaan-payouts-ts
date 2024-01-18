@@ -1,3 +1,4 @@
+import { Dispatch, SetStateAction } from 'react';
 import {
   AnalyticsIcon,
   AppearanceIcon,
@@ -27,7 +28,11 @@ const navbarItems = [
   { href: '/plugins', icon: <PluginsIcon />, label: 'Plugins' },
 ];
 
-export default function Navbar() {
+export default function Navbar({
+  setMobileMenuOpen,
+}: {
+  setMobileMenuOpen?: Dispatch<SetStateAction<boolean>>;
+}) {
   return (
     <nav className='w-full'>
       <ul className='flex flex-col gap-1'>
@@ -37,6 +42,7 @@ export default function Navbar() {
             href={item.href}
             icon={item.icon}
             label={item.label}
+            setMobileMenuOpen={setMobileMenuOpen}
           />
         ))}
       </ul>

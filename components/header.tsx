@@ -1,3 +1,5 @@
+'use client';
+
 import Link from 'next/link';
 import {
   FeedbackIcon,
@@ -6,24 +8,20 @@ import {
   SearchIcon,
   SortArrowIcon,
 } from './icons';
+import { usePathname } from 'next/navigation';
+import MobileSidebar from './mobile-sidebar';
 
 export default function Header() {
-  // const [pageName, setPageName] = useState('');
-  // const location = useLocation();
-
-  // useEffect(() => {
-  //   const pagePath = location.pathname.split('/');
-  //   setPageName(pagePath[1] || 'Home');
-  // }, [location.pathname]);
+  const pathname = usePathname().split('/')[1] || 'Home';
 
   return (
     <header className='w-full grid grid-cols-[1fr_auto] tablet:grid-cols-[1fr_minmax(400px,_1fr)_1fr] items-center py-3 px-4 tablet:px-8 gap-4 border-b border-black-85 bg-black-100'>
       <div className='flex items-center gap-2 tablet:gap-4'>
-        <div className='block tablet:hidden text-black-12'>
-          <MenuOpenIcon className='w-6 h-6' />
+        <div className='block tablet:hidden'>
+          <MobileSidebar />
         </div>
         <span className='text-black-12 text-xl font-medium capitalize'>
-          Payouts
+          {pathname}
         </span>
         <Link
           href='#'
